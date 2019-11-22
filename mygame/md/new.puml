@@ -1,0 +1,4 @@
+@startuml
+title 类图
+note "类图部分符合示意" as comment
+@enduml
