@@ -66,7 +66,7 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
         [*] --> ss
         ss --> [*]
     }
-    note left of s3 : this is a problem commit
+    note left of s3 : this is a problem 
 
     
 ```
