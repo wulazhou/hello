@@ -72,16 +72,16 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 ```
 ```mermaid
     stateDiagram
-    github --> local:拉取
-    local --> github:推送
+    github --> local:3拉取
+    local --> github:4推送
     state github{
         [*]-->graph
         graph --> [*]
     }
     state local{
         [*]-->graph
-        graph --> [*]:提交
-        graph:修改
+        graph --> [*]:2提交✔️
+        graph:1修改暂存+
     }
 ```
 ---
