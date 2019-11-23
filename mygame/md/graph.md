@@ -54,7 +54,6 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
     }
 
 ```
-<<<<<<< HEAD
 ```mermaid
     stateDiagram
     s1 --> s2
@@ -71,9 +70,6 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 
     
 ```
-=======
-
->>>>>>> 3d6c0ed31d165d5c121ee4c73ade0fddce7d1fd7
 ---
 ```mermaid
     graph TB
