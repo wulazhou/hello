@@ -95,3 +95,6 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
     end
 
 ```
+---
+图片
+![](graph.jpg)
