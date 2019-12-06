@@ -70,10 +70,16 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 
     
 ```
+---
+#普通版本管理流程
+---
 ```mermaid
     stateDiagram
-    github --> local:3拉取
+    github --> local:3拉取 
     local --> github:4推送
+    note left of github
+        第3步，拉取不是必须的 
+    end note
     state github{
         [*]-->graph
         graph --> [*]
@@ -96,5 +102,6 @@ style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
 
 ```
 ---
-图片
-![](graph.jpg)
+#图片
+---
+![](/mygame/md/graph.jpeg)
