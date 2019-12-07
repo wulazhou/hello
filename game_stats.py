@@ -8,5 +8,5 @@ class GameStats():
         # 让游戏开始处于非活动状态
         self.game_active = False
     def reset_stats(self):
-        """ 初始化在游戏运行时可能变化的统计信息 """
+        """ 初始化在游戏运行时可能变化的统计信息  """
         self.ship_left = self.ai_settings.ship_limit
