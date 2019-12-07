@@ -7,6 +7,7 @@ from ship import Ship
 # from alien import Alien
 import game_functions as gf
 from game_stats import GameStats
+from button import Button
 
 def run_game():
     '''   初始化   '''
@@ -16,6 +17,8 @@ def run_game():
         ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("外星人打飞船")
 
+    # 创建play按钮
+    play_button = Button(ai_settings, screen, "Play")
     stats = GameStats(ai_settings)
     # 创建一飞船
     ship = Ship(ai_settings, screen)
@@ -30,7 +33,7 @@ def run_game():
         # for event in pygame.event.get():
             # if event.type == pygame.QUIT:
             #     sys.exit()
-        gf.check_events(ai_settings, screen, ship, bullets)
+        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button,aliens)
         if stats.game_active:
             ship.update()
 
@@ -41,7 +44,7 @@ def run_game():
             gf.update_bullets(ai_settings,screen,ship,aliens, bullets)
             gf.update_aliens(ai_settings, aliens, ship, stats, screen, bullets)
             # print(len(bullets))
-        gf.update_screen(ai_settings, screen, ship, bullets, aliens)
+        gf.update_screen(ai_settings, screen, ship, bullets, aliens,play_button,stats)
         # screen.fill(ai_settings.bg_color)
         # ship.blitme()
         # pygame.display.flip()
