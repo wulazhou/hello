@@ -33,15 +33,14 @@ def run_game():
         # for event in pygame.event.get():
             # if event.type == pygame.QUIT:
             #     sys.exit()
-        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button,aliens)
+        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button, aliens)
         if stats.game_active:
             ship.update()
-
             # bullets.update()
             # for bullet in bullets.copy():
             #     if bullet.rect.bottom <= 0:
             #         bullets.remove(bullet)
-            gf.update_bullets(ai_settings,screen,ship,aliens, bullets)
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
             gf.update_aliens(ai_settings, aliens, ship, stats, screen, bullets)
             # print(len(bullets))
         gf.update_screen(ai_settings, screen, ship, bullets, aliens,play_button,stats)
