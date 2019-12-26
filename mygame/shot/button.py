@@ -11,7 +11,7 @@ class Button():
         self.width, self.height = myset.button_width, myset.button_height
         self.button_color = myset.button_color
         self.text_color = myset.button_text_color
-        self.font = pygame.font.SysFont(None, myset.button_font_size, bold=False, italic=False)
+        self.font = pygame.font.SysFont("stheitittf", myset.button_font_size, bold=False, italic=False)
 
         self.rect = pygame.Rect(0,0, self.width, self.height)
         self.rect.center = self.screen_rect.center

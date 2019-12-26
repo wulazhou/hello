@@ -16,11 +16,13 @@ def check_events(myset,screen,ship,bullets,stats,myrects,play_button):
     """ 事件管理 """
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            # print(event.type)
             sys.exit()
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y =pygame.mouse.get_pos()
             check_play_button(stats, myrects, play_button, bullets, ship, myset, screen,mouse_x, mouse_y)
         elif event.type == pygame.KEYDOWN:
+            # print(event.type)
             check_keydown_events(event, myset, screen, ship, bullets, stats, myrects)
         elif event.type == pygame.KEYUP:
             check_keyup_events(event, ship)
@@ -52,6 +54,11 @@ def check_keydown_events(event,myset, screen, ship, bullets,stats,myrects):
         ship.move_up = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(bullets, myset, screen, ship)
+    elif event.key == pygame.K_q:
+         sys.exit()
+    elif event.key == pygame.K_p:
+        if not stats.game_active:
+            start_game(stats, myrects, bullets, myset, screen, ship)
 
 def check_keyup_events(event, ship):
     """ 放开按钮时处理 """

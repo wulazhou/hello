@@ -26,7 +26,7 @@ def method():
     myrects = Group()
     ship= Ship(screen,myset)
     bullets = Group()
-    play_button= Button(myset,screen, "play")
+    play_button= Button(myset,screen, "开始")
     shot.create_rect(myrects, screen, myset)
 
     while True:
