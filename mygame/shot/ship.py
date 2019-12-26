@@ -1,6 +1,6 @@
 """ 引入 pygame 类 """
 import pygame
-
+""" 14-2 练习的子弹管理 """
 
 class Ship():
     # 初始化

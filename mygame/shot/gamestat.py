@@ -1,3 +1,4 @@
+""" 14-2 练习的子弹管理 """
 class GameStat():
     """ 游戏管理 """
     def __init__(self, myset):

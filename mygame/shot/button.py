@@ -1,5 +1,5 @@
 import pygame.font
-
+""" 14-2 练习的子弹管理 """
 class Button():
     """ 创建按钮 """
     def __init__(self, myset, screen, msg):

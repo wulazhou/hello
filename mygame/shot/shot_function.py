@@ -1,3 +1,4 @@
+""" 14-2 练习的子弹管理 """
 import pygame
 import os
 import sys
@@ -70,34 +71,51 @@ def create_rect(myrects, screen, myset):
     myrect = Myrect(screen, myset)
     myrects.add(myrect)
 
-def update_bullets(bullets, mys):
+def update_bullets(bullets, mys, screen, ship, myrects):
     """ 子弹控制管理 超出边界 就减少"""
     bullets.update()
     for bullet in bullets.copy():
         if bullet.rect.left >= mys.screen_w:
             bullets.remove(bullet)
         # print(len(bullets))
+    check_bullet_myrect_collisions(mys, screen, ship, myrects, bullets)
+
+def check_bullet_myrect_collisions(myset, screen, ship, myrects, bullets):
+    """ 子弹击中方块后，方块消失并生成新的方块 """
+    collsiions = pygame.sprite.groupcollide(bullets, myrects, True, True)
+    if len(myrects) == 0:
+        change_rect_direction(myset)
+        bullets.empty()
+        create_rect(myrects, screen, myset)
+        # print("1change direction ")
+        # print(myset.myrect_direction)
 
 def update_myrect(myset, myrects, ship, stats, screen, bullets):
     """ 更新方块 """
     myrects.update()
     isRemveRect = False
-
+    
     for myrect in myrects.sprites():
         if myrect.check_edges():
+            # print("2-------------"+str(len(myrects)))
+            # print(myrect.rect)
+            # print(myrect.screen_rect)
             isRemveRect = True
             break
     
     if isRemveRect:
+        # print("2-------------shot")
         ship_shot(myset,stats,screen,ship, myrects,bullets)
 
 def change_rect_direction(myset):
     """改变方块方向  """
     myset.myrect_direction *= -1
+    # print("change------------- "+str(myset.myrect_direction))
 
 def ship_shot(myset,stats, screen, ship, myrects, bullets):
     """ 方块碰到边缘 没有被击中 """
     if stats.ship_left >0:
+        # print("3ship_shot "+str(myset.myrect_direction))
         stats.ship_left -= 1
         myrects.empty()
         change_rect_direction(myset)

@@ -1,8 +1,9 @@
+""" 14-2 练习的子弹管理 """
 import pygame
 from pygame.sprite import Sprite
 
 class Bullet(Sprite):
-    """ 14-2 练习的子弹管理 """
+    """ 子弹管理 """
     def __init__(self, myset, screen, ship):
         """ 继承父类 初始化子弹的位置，颜色，速度 """
         super().__init__()

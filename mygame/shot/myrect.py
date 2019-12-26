@@ -1,4 +1,4 @@
-""" 矩形 """
+""" 14-2 练习的子弹管理 """
 import pygame
 from pygame.sprite import Sprite
 from random import randint
@@ -11,16 +11,16 @@ class Myrect(Sprite):
         self.screen= screen
         self.myset= myset
         self.screen_rect = screen.get_rect()
-        self.left = self.screen_rect.width - myset.myrect_width 
+        self.left = self.screen_rect.width - 2* myset.myrect_width 
         self.rect =pygame.Rect(0,0,myset.myrect_width,myset.myrect_height)
-        self.rect.x = self.rect.width+randint(0,self.left)
+        self.rect.x = self.rect.width + randint(0,self.left)
         if myset.myrect_direction == -1:
             # 通过方向判断方块生成的位置
             self.rect.y = self.screen_rect.height-myset.myrect_height
         else:
             self.rect.y = 0
         # print(myset.myrect_direction)
-        print(self.rect)
+        # print(self.rect)
         self.y = float(self.rect.y)
 
 
@@ -35,7 +35,7 @@ class Myrect(Sprite):
     
     def check_edges(self):
         """ 检查是否碰到屏幕 """
-        if self.rect.bottom>= self.screen_rect.bottom:
+        if self.rect.bottom >= self.screen_rect.bottom:
             return True
         elif self.rect.top <= 0:
             return True
