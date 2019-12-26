@@ -45,6 +45,7 @@ def check_play_button(stats, play_button, mouse_x, mouse_y, aliens,
     """ 检查鼠标位置是否在按钮的rect选区里 """
     button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
     if button_clicked and not stats.game_active:
+        ai_settings.initializedynamic_settings()
         start_game(stats, aliens, bullets, ai_settings, screen, ship)
 
 def check_events(ai_settings, screen, ship, bullets, stats, play_button, aliens):
@@ -78,10 +79,11 @@ def update_screen(ai_settings, screen, ship, bullets, aliens, play_button, stats
 
 
 def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
-    """ 子弹击中外星人后消失，并生成新的外星人 """
+    """ 子弹击中外星人后消失，加快游戏节奏，并生成新的外星人 """
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
     if len(aliens) == 0:
         bullets.empty()
+        ai_settings.increase_speed()
         create_fleet(ai_settings, screen, aliens, ship)
 
 

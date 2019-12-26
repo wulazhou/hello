@@ -4,18 +4,18 @@ class Mysetting():
         self.screen_h = 900
         self.screen_w = 1600
         self.titles = 'blue solar'
-        self.ship_speed = 2.0
+        self.ship_speed = 4.0
         self.ship_bg_col =230, 230, 230
         self.haha_speed = 2.0 
         # 速度
         self.haha_image_loc = 'lan.jpg' 
         self.ship_image_loc = 'shiphh.jpg' 
         # 地址
-        self.bullet_speed = 3
+        self.bullet_speed = 5
         self.bullet_width = 15
         self.bullet_height = 3
         self.bullet_color = 255, 51, 0
-        self.bullet_allwed = 4
+        self.bullet_allwed = 5
 
         # 星星
         self.star_image_loc = 'xinxin/xinxin25.bmp'
@@ -50,9 +50,15 @@ class Mysetting():
         self.button_font_size =48
         self.myrect_width = 100
         self.myrect_height = 100
-        self.myrect_speed = 5
+        self.speedup_scale = 1.1
+        self.initialize_dynamic_settings()
+
+    def initialize_dynamic_settings(self):
+        """ 初始化标靶移动速度 """
+        self.myrect_speed = 1.5
         # 方块移动方向 1 下，-1 上
         self.myrect_direction =1
-        
-
+    
+    def increase_speed(self):
+        self.myrect_speed *= self.speedup_scale
 

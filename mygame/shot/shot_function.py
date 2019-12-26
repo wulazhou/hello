@@ -30,7 +30,8 @@ def check_events(myset,screen,ship,bullets,stats,myrects,play_button):
 def check_play_button(stats, myrects, play_button, bullets, ship, myset, screen, mouse_x, mouse_y):
     """ 开始按钮设置 """
     button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
-    if button_clicked:
+    if button_clicked and not stats.game_active:
+        myset.initialize_dynamic_settings()
         start_game(stats, myrects, bullets, myset, screen, ship)
 
 def start_game(stats, myrects, bullets, myset, screen, ship):
@@ -93,6 +94,7 @@ def check_bullet_myrect_collisions(myset, screen, ship, myrects, bullets):
     if len(myrects) == 0:
         change_rect_direction(myset)
         bullets.empty()
+        myset.increase_speed()
         create_rect(myrects, screen, myset)
         # print("1change direction ")
         # print(myset.myrect_direction)
@@ -125,6 +127,7 @@ def ship_shot(myset,stats, screen, ship, myrects, bullets):
         # print("3ship_shot "+str(myset.myrect_direction))
         stats.ship_left -= 1
         myrects.empty()
+        bullets.empty()
         change_rect_direction(myset)
         create_rect(myrects, screen, myset)
         sleep(0.5)
