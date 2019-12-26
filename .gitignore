@@ -89,3 +89,12 @@ samples/nonfree/nlp2004slides.txt.ref
 samples/nonfree/nlp2004slides.xml.ref
 5.jpeg
 mygame/shot/__pycache__/bullet.cpython-37.pyc
+__pycache__/alien.cpython-37.pyc
+__pycache__/bullet.cpython-37.pyc
+__pycache__/game_functions.cpython-37.pyc
+__pycache__/game_stats.cpython-37.pyc
+__pycache__/settings.cpython-37.pyc
+__pycache__/ship.cpython-37.pyc
+__pycache__/sruvey.cpython-37.pyc
+__pycache__/test_survey.cpython-37.pyc
+__pycache__/button.cpython-37.pyc
