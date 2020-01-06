@@ -8,18 +8,27 @@ from ship import Ship
 import game_functions as gf
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
+
 
 def run_game():
     '''   初始化   '''
     pygame.init()
+    pygame.mixer.init()
+    filename= 'junner.ogg'
     ai_settings = Settings()
     screen = pygame.display.set_mode((
         ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("外星人打飞船")
+    pygame.mixer.music.load(filename)
+    pygame.mixer.music.play(-1,10)
+
 
     # 创建play按钮
     play_button = Button(ai_settings, screen, "Play")
     stats = GameStats(ai_settings)
+    # 创建积分牌
+    sb = Scoreboard(ai_settings, screen, stats)
     # 创建一飞船
     ship = Ship(ai_settings, screen)
     # 创建外星人
@@ -33,17 +42,17 @@ def run_game():
         # for event in pygame.event.get():
             # if event.type == pygame.QUIT:
             #     sys.exit()
-        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button, aliens)
+        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button, aliens, sb)
         if stats.game_active:
             ship.update()
             # bullets.update()
             # for bullet in bullets.copy():
             #     if bullet.rect.bottom <= 0:
             #         bullets.remove(bullet)
-            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
-            gf.update_aliens(ai_settings, aliens, ship, stats, screen, bullets)
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets, stats, sb)
+            gf.update_aliens(ai_settings, aliens, ship, stats, screen, bullets, sb)
             # print(len(bullets))
-        gf.update_screen(ai_settings, screen, ship, bullets, aliens,play_button,stats)
+        gf.update_screen(ai_settings, screen, ship, bullets, aliens, play_button, stats, sb)
         # screen.fill(ai_settings.bg_color)
         # ship.blitme()
         # pygame.display.flip()

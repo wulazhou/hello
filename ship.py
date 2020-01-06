@@ -1,13 +1,14 @@
 ''' 船 '''
 import pygame
 # from settings import Settings
+from pygame.sprite import Sprite 
 
-
-class Ship():
+class Ship(Sprite):
     ''' chushihua  '''
 
     def __init__(self, ai_settings, screen):
-        '''  '''
+        ''' 初始化飞船，并设置其位置 '''
+        super(Ship, self).__init__()
         self.screen = screen
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()

@@ -3,15 +3,16 @@ class Settings():
     '''  初始化 '''
     def __init__(self):
 
+        self.file_name="high.json"
         self.screen_width = 1200
         self.screen_height = 800
         self.bg_color = (230, 230, 230)
         # 飞船的速度
         # self.ship_speed_factor = 2
-        self.ship_limit = 3
+        self.ship_limit = 1
         # self.bullet_speed_factor = 3
         # 子弹的速度
-        self.bullet_width = 3
+        self.bullet_width = 300
         self.bullet_heigth = 15
         # 子弹长宽
         self.bullet_color = 109, 109, 109
@@ -27,6 +28,8 @@ class Settings():
         # self.fleet_direction = 1
         #游戏速度节奏
         self.speedup_scale = 1.1
+        #外星人点数提高速度
+        self.score_scale = 1.5
         self.initializedynamic_settings()
 
     def initializedynamic_settings(self):
@@ -36,8 +39,12 @@ class Settings():
         self.allen_speed_factor = 2
         # 外星人移动方向 1 右，-1 左
         self.fleet_direction = 1
+        self.alien_score = 50
+
     def increase_speed(self):
         """ 提高速度设置 """
         self.ship_speed_factor *= self.speedup_scale
         self.bullet_speed_factor *= self.speedup_scale
         self.allen_speed_factor *= self.speedup_scale
+        self.alien_score = int(self.alien_score * self.score_scale)
+        print(self.alien_score)
